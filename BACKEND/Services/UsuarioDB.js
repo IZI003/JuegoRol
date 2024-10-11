@@ -1,20 +1,6 @@
 const mssql = require('mssql');
 const DBManager = require('../Database/DBManagerMSSQL');
-
-require('dotenv').config();
-
-const config = {
-    server: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    options: {
-        encrypt: true,
-        trustServerCertificate: true,
-    }
-};
-
-const dbManager = new DBManager(config);
+const dbManager = new DBManager();
 
 exports.insertarUsuario = async function (req) {
 

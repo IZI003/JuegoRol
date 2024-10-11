@@ -1,7 +1,19 @@
 const mssql = require('mssql');
+require('dotenv').config({ path: 'dev.env' });
+
+const config = {
+    server: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    options: {
+        encrypt: true,
+        trustServerCertificate: true,
+    }
+};
 
 class DBManager {
-    constructor(config) {
+    constructor() {
         this.config = config;
         this.pool = null;
     }

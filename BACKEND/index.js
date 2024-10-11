@@ -4,13 +4,12 @@ const app = express();
 const morgan = require('morgan');
 const cors = require('cors');
 const bodyparser = require('body-parser');
-const conectarDB = require('./Database');
+require('dotenv').config({ path: 'dev.env' });
 
-conectarDB();
 app.use(express.json());
-const port = 3000;
+const port = process.env.port;
 app.use(cors({
-    origin: 'http://localhost:3001'
+    origin: process.env.DOMINIO + process.env.PORT_FRONT
 }));
 
 app.use(morgan('dev'));
@@ -20,5 +19,5 @@ app.use('/api/v1/', require('./Routers/V1/PerfilRoutes'));
 
 //start servidor
 app.listen(port, () => {
-    console.log(`Server en el puerto  http://localhost:${port}`)
+    console.log(`Server en el puerto ${process.env.DOMINIO + port}`)
 });

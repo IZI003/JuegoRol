@@ -1,7 +1,5 @@
 const { Router } = require('express');
-
 const router = Router();
-
 const PerfilControllers = require('../../Controllers/PerfilControllers');
 
 router
@@ -9,8 +7,6 @@ router
   .get('/usuarios/:id', PerfilControllers.obtenerporId)
   .post('/usuarios/', PerfilControllers.crear)
   .put('/usuarios/:id', PerfilControllers.actualizar);
-   /*   .delete('/cuenta/:id', PerfilControllers.eliminar)
-    .get('/cuenta/:id', PerfilControllers.obtenerporId)*/;
-
+/*   .delete('/usuarios/:id', PerfilControllers.eliminar)*/
 
 module.exports = router;
