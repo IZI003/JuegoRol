@@ -37,7 +37,6 @@ exports.obtenerUsuarios = async function () {
 
 exports.obtenerUsuariosId = async function (id) {
     const query = `SELECT * FROM dbo.USUARIOS where id_usuario = ${id}`;
-    console.log(query);
     try {
         const result = await dbManager.selectId(query);
         return result;

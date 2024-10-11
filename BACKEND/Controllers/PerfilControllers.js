@@ -12,50 +12,35 @@ exports.obtener = async (req, res) => {
 
 exports.obtenerporId = async (req, res) => {
     try {
-        console.log(req.params.id);
-
         let cuenta = await UsuarioDB.obtenerUsuariosId(req.params.id);
 
-        if (!cuenta) {
-            return res.status(404).json({ msg: "No se encontro la cuenta" });
+        if (!cuenta || cuenta.length === 0) {
+            return res.status(404).json(new Respuesta("Error no se encontro al usuario", 'Fail', "No hallado", null));
         }
 
-        res.send(cuenta);
+        res.send(new Respuesta(null, 'OK', null, cuenta));
     } catch (err) {
         console.error(err);
-        res.status(500).send("Error en el server");
+        res.status(500).send(new Respuesta("Error en el server", 'Fail', err.message, null));
         return;
     }
 }
 
 exports.crear = async (req, res) => {
     try {
-        console.log("prueba el servidor");
-        let cuenta = await UsuarioDB.insertarUsuario(req.body)
-        res.send(cuenta);
+        res.send(new Respuesta(null, 'OK', null, await await UsuarioDB.insertarUsuario(req.body)));
     } catch (err) {
         console.error(err);
-        res.status(500).send("Error en el server");
+        res.status(500).send(new Respuesta("Error en el server", 'Fail', err.message, null));
         return;
     }
 }
 
 exports.actualizar = async (req, res) => {
-
     const idUsuario = req.params.id; // ID del usuario que se actualizará
-
     try {
-        const result = await UsuarioDB.actualizarUsuario(req.body, idUsuario)
-        res.status(200).json({
-            status: 'success',
-            message: 'Usuario actualizado correctamente',
-            data: result
-        });
+        res.status(200).json(new Respuesta('Usuario actualizado correctamente', 'OK', null, await UsuarioDB.actualizarUsuario(req.body, idUsuario)));
     } catch (error) {
-        res.status(500).json({
-            status: 'fail',
-            message: 'Error al actualizar el usuario',
-            error: error.message
-        });
+        res.status(500).json(new Respuesta('Error al actualizar el usuario', 'fail', error.message, null));
     }
 }
