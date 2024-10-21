@@ -1,0 +1,38 @@
+<div class="card-container">
+    <mat-card>
+         <mat-card-header>
+              <mat-card-title>Registrarse</mat-card-title>
+         </mat-card-header>
+         <mat-card-content>
+              <form class="form-custom" [formGroup]="formRegistro">
+               <mat-form-field class="input-custom">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput formControlName="usuario">
+               </mat-form-field>
+                <mat-form-field class="input-custom">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombre">
+                </mat-form-field>
+                <mat-form-field class="input-custom">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+                   <mat-form-field class="input-custom">
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput formControlName="telefono" >
+                </mat-form-field>
+                   <mat-form-field class="input-custom">
+                        <mat-label>password</mat-label>
+                        <input matInput formControlName="password" type="password">
+                   </mat-form-field>
+                   <mat-form-field class="input-custom">
+                    <mat-label>Repetir password</mat-label>
+                    <input matInput formControlName="password2" type="password">
+               </mat-form-field>
+                   <div class="flex">
+                        <button mat-flat-button color="warn" (click)="registrarse()" style="margin-left:8px">Registrarse</button>
+                   </div>
+              </form>
+         </mat-card-content>
+    </mat-card>
+  </div>
