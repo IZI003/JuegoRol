@@ -28,7 +28,14 @@ exports.obtenerporId = async (req, res) => {
 
 exports.crear = async (req, res) => {
     try {
-        res.send(new Respuesta(null, 'OK', null, await await UsuarioDB.insertarUsuario(req.body)));
+        const result = await UsuarioDB.insertarUsuario(req.body, req);
+
+        if (result.error) {
+            res.status(400).send(new Respuesta("Error existe el usuario", 'Fail', "Error ya existe el usuario", null));
+            return;
+        }
+
+        res.send(new Respuesta(null, 'OK', null, result));
     } catch (err) {
         console.error(err);
         res.status(500).send(new Respuesta("Error en el server", 'Fail', err.message, null));

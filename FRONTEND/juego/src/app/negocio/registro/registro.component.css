@@ -1,0 +1,17 @@
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:  100px;
+}
+
+.input-custom
+{
+    width: 100%;
+}
+.form-custom
+{
+    min-width: 100%;
+    width: 100%;
+}

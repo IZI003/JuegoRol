@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+
+body {
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0f9b0f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0f9b0f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.material-symbols-outlined {
+    font-size : 60px;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 40,
+    'GRAD' 200,
+    'opsz' 48
+  }
+  .Active-link{
+    background-color: #0f9b0f;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:  100px;
+}
+
+.input-custom
+{
+  width: 100%;
+}
+.form-custom
+{
+  min-width: 100%;
+  width: 100%;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.icon-large {
+    font-size: 80px; /* Aumenta el tamaño de los íconos */
+  }
+  
+  mat-toolbar {
+    justify-content: center; /* Asegura que el contenido esté centrado */
+  }
+  .example-tab-icon {
+    margin-right: 8px;
+  }
